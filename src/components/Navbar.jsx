@@ -24,9 +24,10 @@ const NavBar = () => {
                     <h2 className="text-white text-base font-['Barlow'] tracking-[.25em] font-medium">NANOPODS</h2>
                 </a>
                 <div className="flex md:gap-x-5">
-                    <ul className={`relative max-md:fixed md:static gap-x-6 text-sm font-poppins flex items-center
-                        max-md:bg-[#1A1A1A] max-md:top-0 max-md:right-[${open ? 0 : '-100%'}] max-md:min-h-[100vh] max-md:min-w-[320px] max-md:flex-col
-                        max-md:justify-center max-md:gap-y-10 transition-all duration-200 ease-in-out`}>
+                    <ul className={`max-md:fixed gap-x-6 text-sm font-poppins flex items-center
+                        max-md:bg-[#1A1A1A] max-md:top-0 max-md:min-h-[100vh] max-md:min-w-[320px] max-md:flex-col
+                        max-md:justify-center max-md:gap-y-10 transition-all duration-200 ease-in-out`}
+                        style={{ right: open ? '0' : '-100%' }}>
                         {
                             links.map((link) => (
                                 <li key={link.name}><a href={link.link}>{link.name}</a></li>
