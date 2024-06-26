@@ -17,8 +17,8 @@ const NavBar = () => {
             document.documentElement.style.overflowY = 'auto';
     }, [open]);
     return (
-        <div className="border-inherit mx-10">
-            <div className="relative h-24 flex flex-row items-center justify-between">
+        <div className="fixed bg-black w-full top-0 text-white">
+            <div className="relative h-24 mx-10 flex flex-row items-center justify-between">
                 <a href='/nanopods-vite/index.html' className="flex items-center gap-x-3">
                     <img className="bg-cover h-6 w-6" src={logo} alt=""/>
                     <h2 className="text-white text-base font-['Barlow'] tracking-[.25em] font-medium">NANOPODS</h2>

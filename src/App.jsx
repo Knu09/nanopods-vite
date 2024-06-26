@@ -1,10 +1,15 @@
 import Hero from "./components/Hero.jsx";
+import Navbar from "./components/Navbar.jsx";
+import Features from "./components/Features.jsx";
+
 
 function App() {
     return (
         <>
-            <div className="App max-sm:text-center">
-                <Hero/>
+            <Navbar />
+            <div className="App max-sm:text-center bg-[#ddd] font-paragraph">
+                <Hero />
+                <Features />
             </div>
         </>
     )
