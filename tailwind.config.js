@@ -16,7 +16,13 @@ export default {
             fontFamily: {
                 'paragraph': ['"Open Sans"'],
                 'poppins': ['"Poppins"']
-
+            },
+            minHeight: {
+                '300': '300px',
+            },
+            fontSize: {
+                'upperHeader': ['20px'],
+                'paragraph': ['16px']
             }
         },
     },
