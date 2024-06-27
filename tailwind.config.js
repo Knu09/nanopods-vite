@@ -23,9 +23,13 @@ export default {
             fontSize: {
                 'upperHeader': ['20px'],
                 'paragraph': ['16px']
-            }
+            },
+            boxShadow: {
+                'custom-inner': '0 0 10px 0 rgba(0, 0, 0, 0.4)',
+            },
         },
     },
-    plugins: [],
+    plugins: [
+    ],
 }
 
