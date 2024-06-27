@@ -27,7 +27,7 @@ const NavBar = () => {
                     <ul className={`max-md:fixed gap-x-6 text-sm font-poppins flex items-center
                         max-md:bg-[#1A1A1A] max-md:top-0 max-md:min-h-[100vh] max-md:min-w-[320px] max-md:flex-col
                         max-md:justify-center max-md:gap-y-10 transition-all duration-200 ease-in-out`}
-                        style={{ right: open ? '0' : '-100%' }}>
+                        style={{right: open ? '0' : '-100%'}}>
                         {
                             links.map((link) => (
                                 <li key={link.name}><a href={link.link}>{link.name}</a></li>
@@ -37,7 +37,7 @@ const NavBar = () => {
                             <Button text={'SignUp'}/>
                         </div>
                     </ul>
-                    <div className="absolute right-[25px] top-[40px] w-[20px] h-[15px] md:hidden cursor-pointer"
+                    <div className="absolute right-0 top-[40px] w-[20px] h-[15px] md:hidden cursor-pointer"
                          onClick={() => setOpen(!open)}>
                             <span className="absolute before:content-[''] w-[20px] h-[2px] bg-white
                             translate-y-[-50%] translate-x-[-50%] top-0"></span>
