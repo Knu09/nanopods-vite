@@ -9,13 +9,13 @@ export function GuideSection() {
                 </div>
                 {/* GUIDE SECTION VIDEO */}
                 <div className="py-8">
-                    <iframe className="aspect-video w-full" src="https://www.youtube.com/embed/gacaNEgEfSQ?si=HJlmU-drpoq2eUNy"
+                    <iframe className=" aspect-video w-full" src="https://www.youtube.com/embed/gacaNEgEfSQ?si=HJlmU-drpoq2eUNy"
                             title="YouTube video player" frameBorder="0"
                             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                             referrerPolicy="strict-origin-when-cross-origin" allowFullScreen></iframe>
                 </div>
                 {/* GUIDE SECTION DETAILS */}
-                <article className="leading-8">
+                <article className="leading-8 max-sm:text-start">
                     <p className="">Using <b>NanoPods</b> has a 3 quick steps. Follow these easy steps to get started:</p>
                     <ol role="list" className="list-decimal pl-5 my-5">
                         <li><b>Connect</b>: Open the charging case near your device and wait for the pop-up to appear. Tap "Connect" and you're ready to go.</li>

@@ -2,7 +2,7 @@ import Hero from "./components/Hero.jsx";
 import Navbar from "./components/Navbar.jsx";
 import Features from "./components/Features.jsx";
 import {GuideSection} from "./components/GuideSection.jsx";
-
+import {Product} from "./components/Product.jsx";
 function App() {
     return (
         <>
@@ -11,7 +11,7 @@ function App() {
                 <Hero />
                 <Features />
                 <GuideSection />
-
+                <Product />
             </div>
         </>
     )
