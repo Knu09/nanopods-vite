@@ -6,6 +6,6 @@ export default defineConfig({
   base: '/nanopods-vite/',
   plugins: [react()],
   css: {
-    postcss: './postcss/config.js',
+    postcss: './postcss/config.js'
   }
 })
