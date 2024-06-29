@@ -5,20 +5,23 @@ import ShopButton from './ShopButton'
 import React, { useState, useEffect } from 'react'
 
 export const Product = () => {
-    const [products, setProduct] = useState(PRODUCTS)
-    const [currentState, setCurrentState] = useState(null)
+    const [products, setProducts] = useState(PRODUCTS)
+    const [currentState, setCurrentState] = useState(products[0])
 
+    const handleProductClick = (clickedProduct) => {
+        const updateProducts = products.map((product) => 
+            product.name === clickedProduct.name
+                ? { ...product, isCurrent: true }
+                : { ...product, isCurrent: false }
+        )
+        setProducts(updateProducts)
+        setCurrentState(clickedProduct)
+    }
+/* 
     useEffect(() => {
         const currentProduct = products.find((product) => product.isCurrent)
-        if (currentProduct) {
-            setCurrentState(currentProduct)
-        }
-    }, [products])
-    useEffect(() => {
-        if (currentState) {
-            console.log(currentState.name)
-        }
-    }, [currentState])
+        setCurrentState(currentProduct || null)
+    }, [products]) */
 
     return (
         <div className="container max-w-[1500px] mx-auto pt-12 px-5">
@@ -36,21 +39,22 @@ export const Product = () => {
                     </h1>
                 </div>
                 {/* BUYING SECTION */}
-                <div className="flex gap-5">
-                    <div className="flex justify-center items-center grow w-full py-10 px-10 shadow-custom-inner-md rounded-lg">
-                        <img
-                            src={airpods1}
-                            alt="AirPods 3rd Generation"
-                            className="aspect-square max-w-[450px]"
-                        />
-                    </div>
-                    <div className="flex justify-between flex-col grow w-full gap-5">
-                        { currentState ? (
+
+                {currentState && (
+                    <div className="flex gap-5">
+                        <div className="flex justify-center items-center grow w-full py-10 px-10 shadow-custom-inner-md rounded-lg">
+                            <img
+                                src={currentState.img}
+                                alt={currentState.name}
+                                className="aspect-square w-[450px] h-[450px]"
+                            />
+                        </div>
+                        <div className="flex justify-between flex-col grow w-full gap-5">
                             <div className="flex flex-col gap-y-3">
                                 <div className="flex justify-between">
                                     <div>
                                         <h1 className="font-poppins font-bold max-sm:text-3xl text-5xl">
-                                            { currentState.name }
+                                            {currentState.name}
                                         </h1>
                                         <h2 className="uppercase font-poppins font-semibold text-upperHeader">
                                             {currentState.gen}
@@ -74,51 +78,82 @@ export const Product = () => {
                                     ))}
                                 </ul>
                             </div>
-                        ) : (
-                            <p>No Current product selected</p>
-                        ) }
-                        <div className="flex flex-col gap-y-3">
-                            <div className="flex flex-row gap-x-3 items-center">
-                                <span className="font-medium">QTY: </span>
-                                <Button
-                                    text="-"
-                                    fontWeight={'medium'}
-                                    fontSize={'md'}
-                                />
-                                <input
-                                    className="custom-number-input bg-[#EBEBEB] w-32 h-full shadow-custom-inner
-                     rounded-md border-none outline-none text-center"
-                                    type="number"
-                                    placeholder="00"
-                                    min="1"
-                                    max="10"
-                                />
-                                <Button
-                                    text="+"
-                                    fontWeight={'medium'}
-                                    fontSize={'md'}
-                                />
-                            </div>
                             <div className="flex flex-col gap-y-3">
-                                <ShopButton
-                                    text="Buy Now"
-                                    bgColor={'primary-yellow'}
-                                    border={''}
-                                    bgHover={'color-hover'}
-                                />
-                                <ShopButton
-                                    text="Add to Cart"
-                                    bgColor={'transparent'}
-                                    border={'border-2 border-black'}
-                                />
+                                <div className="flex flex-row gap-x-3 items-center">
+                                    <span className="font-medium">QTY: </span>
+                                    <Button
+                                        text="-"
+                                        fontWeight={'medium'}
+                                        fontSize={'md'}
+                                    />
+                                    <input
+                                        className="custom-number-input bg-[#EBEBEB] w-32 h-full shadow-custom-inner
+                     rounded-md border-none outline-none text-center"
+                                        type="number"
+                                        placeholder="0"
+                                        min="1"
+                                        max="10"
+                                    />
+                                    <Button
+                                        text="+"
+                                        fontWeight={'medium'}
+                                        fontSize={'md'}
+                                    />
+                                </div>
+                                <div className="flex flex-col gap-y-3">
+                                    <ShopButton
+                                        text="Buy Now"
+                                        bgColor={'primary-yellow'}
+                                        border={''}
+                                        bgHover={'color-hover'}
+                                    />
+                                    <ShopButton
+                                        text="Add to Cart"
+                                        bgColor={'transparent'}
+                                        border={'border-2 border-black'}
+                                    />
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
+                )}
+
                 {/* OTHER PRODUCTS */}
-                <div>
-                    <h2 className="uppercase">Other Products: </h2>
-                    <div></div>
+                <div className="flex flex-col gap-y-5">
+                    <h2 className="uppercase text-xl font-bold">
+                        Other Products:
+                    </h2>
+                    <div className="flex gap-x-10">
+                        {products.map((product, index) => {
+                            if (!product.isCurrent) {
+                                return (
+                                    <li
+                                        className="flex list-none flex-col items-center
+                                    py-5 px-10 shadow-custom-inner-md rounded-lg max-w-[300px] gap-y-5"
+                                        key={index}
+                                        onClick={() =>
+                                            handleProductClick(product)
+                                        }
+                                    >
+                                        <img
+                                            className="aspect-square bg-contain w-[200px]"
+                                            src={product.img}
+                                            alt={product.name}
+                                        />
+                                        <div className="text-center">
+                                            <h1 className="text-2xl font-bold ">
+                                                {product.name}
+                                            </h1>
+                                            <h2 className="text-md font-semibold">
+                                                {product.gen}
+                                            </h2>
+                                        </div>
+                                    </li>
+                                )
+                            }
+                            return null
+                        })}
+                    </div>
                 </div>
             </div>
         </div>

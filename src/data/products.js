@@ -1,5 +1,10 @@
+import img1 from '../assets/airpods-3rd-generation.png'
+import img2 from '../assets/airpods-pro.png'
+import img3 from '../assets/airpod-max.png'
+
 export const PRODUCTS = [
     {
+        img: img1,
         name: 'AirPods',
         gen: '3rd Generation',
         price: '10,990',
@@ -12,6 +17,7 @@ export const PRODUCTS = [
         isCurrent: true,
     },
     {
+        img: img2,
         name: 'AirPods Pro',
         gen: '2nd Generation',
         price: '14,990',
@@ -26,6 +32,7 @@ export const PRODUCTS = [
         isCurrent: false,
     },
     {
+        img: img3,
         name: 'AirPods Max',
         gen: '',
         price: '32,990',
