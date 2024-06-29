@@ -25,7 +25,9 @@ export default {
                 'paragraph': ['16px']
             },
             boxShadow: {
-                'custom-inner': '0 0 10px 0 rgba(0, 0, 0, 0.4)',
+                'custom-inner': 'inset 0px 0px 5px 0 rgba(0, 0, 0, 0.4)',
+                'custom-inner-md': 'inset 0px 0px 10px 0 rgba(0, 0, 0, 0.4)',
+
             },
         },
     },
