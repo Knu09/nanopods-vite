@@ -34,7 +34,7 @@ const NavBar = () => {
                             ))
                         }
                         <div className="md:flex">
-                            <Button text={'SignUp'} />
+                            <Button text={'SignUp'} fontWeight={'medium'} fontSize={'sm'} />
                         </div>
                     </ul>
                     <div className="absolute right-0 top-[40px] w-[20px] h-[15px] md:hidden cursor-pointer"

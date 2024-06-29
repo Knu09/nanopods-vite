@@ -1,11 +1,9 @@
-const Button = ({ text }) => {
-   const sample = "wda";
+const Button = ({ width, text, fontWeight, fontSize }) => {
    return (
-      <div>
-         <button className="font-['Poppins'] h-35 px-6 py-4 bg-primary-yellow text-black font-medium rounded text-xs hover:bg-color-hover">
-            {text}
-         </button>
-      </div>
+      <button className={`font-['Poppins'] h-35 px-6 py-4 bg-primary-yellow text-black font-${fontWeight}
+       rounded text-${fontSize} hover:bg-color-hover w-${width}`}>
+         {text}
+      </button>
    );
 };
 
