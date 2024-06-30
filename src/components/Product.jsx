@@ -7,9 +7,10 @@ import React, { useState, useEffect } from 'react'
 export const Product = () => {
     const [products, setProducts] = useState(PRODUCTS)
     const [currentState, setCurrentState] = useState(products[0])
+    const [quantityCount, setQuantityCount] = useState(null)
 
     const handleProductClick = (clickedProduct) => {
-        const updateProducts = products.map((product) => 
+        const updateProducts = products.map((product) =>
             product.name === clickedProduct.name
                 ? { ...product, isCurrent: true }
                 : { ...product, isCurrent: false }
@@ -17,7 +18,21 @@ export const Product = () => {
         setProducts(updateProducts)
         setCurrentState(clickedProduct)
     }
-/* 
+    
+    const handleDecrement = () => {
+        if (quantityCount > 1) setQuantityCount(quantityCount - 1)
+    }
+
+    const handleIncrement = () => {
+        if (quantityCount < 10) setQuantityCount(quantityCount + 1)
+    }
+    
+    const handleChange = (event) => {
+        const value = parseInt(event.target.value, 10);
+        setQuantityCount(value)
+    }
+
+    /* 
     useEffect(() => {
         const currentProduct = products.find((product) => product.isCurrent)
         setCurrentState(currentProduct || null)
@@ -85,19 +100,23 @@ export const Product = () => {
                                         text="-"
                                         fontWeight={'medium'}
                                         fontSize={'md'}
+                                        onClick={handleDecrement}
                                     />
                                     <input
                                         className="custom-number-input bg-[#EBEBEB] w-32 h-full shadow-custom-inner
                      rounded-md border-none outline-none text-center"
                                         type="number"
                                         placeholder="0"
+                                        value={quantityCount}
                                         min="1"
                                         max="10"
+                                        onChange={handleChange}
                                     />
                                     <Button
                                         text="+"
                                         fontWeight={'medium'}
                                         fontSize={'md'}
+                                        onClick={handleIncrement}
                                     />
                                 </div>
                                 <div className="flex flex-col gap-y-3">
@@ -129,7 +148,7 @@ export const Product = () => {
                                 return (
                                     <li
                                         className="flex list-none flex-col items-center
-                                    py-5 px-10 shadow-custom-inner-md rounded-lg max-w-[300px] gap-y-5"
+                                    py-5 px-10 shadow-custom-inner-md rounded-lg max-w-[300px] gap-y-5 cursor-pointer"
                                         key={index}
                                         onClick={() =>
                                             handleProductClick(product)
