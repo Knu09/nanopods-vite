@@ -18,7 +18,7 @@ export const Product = () => {
         setProducts(updateProducts)
         setCurrentState(clickedProduct)
     }
-    
+
     const handleDecrement = () => {
         if (quantityCount > 1) setQuantityCount(quantityCount - 1)
     }
@@ -26,7 +26,7 @@ export const Product = () => {
     const handleIncrement = () => {
         if (quantityCount < 10) setQuantityCount(quantityCount + 1)
     }
-    
+
     const handleChange = (event) => {
         const value = parseInt(event.target.value, 10);
         setQuantityCount(value)
@@ -39,7 +39,7 @@ export const Product = () => {
     }, [products]) */
 
     return (
-        <div className="container max-w-[1500px] mx-auto pt-12 px-5">
+        <div className="container max-w-[1500px] mx-auto pt-12 px-5 text-start">
             <div
                 className="flex flex-col bg-[#f5f5f5] text-primary-black py-8 px-10 max-sm:px-5 rounded-lg shadow-[4px_5px_6px_0_rgba(0,0,0,.4)]
             gap-y-8"
@@ -56,17 +56,17 @@ export const Product = () => {
                 {/* BUYING SECTION */}
 
                 {currentState && (
-                    <div className="flex gap-5">
-                        <div className="flex justify-center items-center grow w-full py-10 px-10 shadow-custom-inner-md rounded-lg">
+                    <div className="flex flex-col gap-5 lg:flex-row">
+                        <div className="flex justify-center items-center grow w-full py-10 px-10 shadow-custom-inner-md rounded-lg bg-[#EBEBEB]">
                             <img
                                 src={currentState.img}
                                 alt={currentState.name}
-                                className="aspect-square w-[450px] h-[450px]"
+                                className="aspect-square w-[450px] md:h-[450px]"
                             />
                         </div>
                         <div className="flex justify-between flex-col grow w-full gap-5">
                             <div className="flex flex-col gap-y-3">
-                                <div className="flex justify-between">
+                                <div className="flex flex-col justify-center items-center text-center sm:text-start sm:items-start sm:justify-between">
                                     <div>
                                         <h1 className="font-poppins font-bold max-sm:text-3xl text-5xl">
                                             {currentState.name}
@@ -103,7 +103,7 @@ export const Product = () => {
                                         onClick={handleDecrement}
                                     />
                                     <input
-                                        className="custom-number-input bg-[#EBEBEB] w-32 h-full shadow-custom-inner
+                                        className="custom-number-input bg-[#EBEBEB] w-32 h-[46px] shadow-custom-inner
                      rounded-md border-none outline-none text-center"
                                         type="number"
                                         placeholder="0"
@@ -142,13 +142,14 @@ export const Product = () => {
                     <h2 className="uppercase text-xl font-bold">
                         Other Products:
                     </h2>
-                    <div className="flex gap-x-10">
+                    <div className="flex justify-center max-sm:items-center gap-10 flex-col sm:items- sm:flex-row sm:justify-start">
                         {products.map((product, index) => {
                             if (!product.isCurrent) {
                                 return (
                                     <li
                                         className="flex list-none flex-col items-center
-                                    py-5 px-10 shadow-custom-inner-md rounded-lg max-w-[300px] gap-y-5 cursor-pointer"
+                                    py-5 px-10 shadow-custom-inner-md rounded-lg max-w-[300px] gap-y-5 cursor-pointer
+                                    bg-[#EBEBEB]"
                                         key={index}
                                         onClick={() =>
                                             handleProductClick(product)
