@@ -15,7 +15,8 @@ export default {
             },
             fontFamily: {
                 'paragraph': ['"Open Sans"'],
-                'poppins': ['"Poppins"']
+                'poppins': ['"Poppins"'],
+                'PPSupplyMono': ['"PP Supply Mono"']
             },
             minHeight: {
                 '300': '300px',
