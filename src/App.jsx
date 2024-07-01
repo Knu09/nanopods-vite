@@ -11,10 +11,10 @@ function App() {
             <Navbar />
             <div className="App max-sm:text-center bg-[#ddd] font-paragraph">
                 <Hero />
-                <Features />
-                <GuideSection />
-                <Product />
-                <Contact />
+                <Features id={'features'} />
+                <GuideSection id={'how_to_use'} />
+                <Product id={'product'} />
+                <Contact id={'contact'} />
                 <Footer />
             </div>
         </>

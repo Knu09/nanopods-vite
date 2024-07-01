@@ -1,8 +1,8 @@
 import FeatureItem from "./FeatureItem.jsx";
 import { FEATURES } from "../data/features.js"
-const Features = () => {
+const Features = ({ id }) => {
     return (
-        <div className="container max-w-[1150px] mx-auto my-5 px-5">
+        <div id={id} className="container max-w-[1150px] mx-auto my-5 px-5">
             <div className=" pt-12 pb-5 px-5 sm:px-10 rounded-lg shadow-[4px_5px_6px_0_rgba(0,0,0,.4)] bg-[#F5F5F5]">
                 {/*  FEATURE HEADER  */}
                 <div className="text-primary-black">

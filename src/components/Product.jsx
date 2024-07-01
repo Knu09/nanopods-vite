@@ -4,7 +4,7 @@ import Button from './Button'
 import ShopButton from './ShopButton'
 import React, { useState, useEffect } from 'react'
 
-export const Product = () => {
+export const Product = ({id}) => {
     const [products, setProducts] = useState(PRODUCTS)
     const [currentState, setCurrentState] = useState(products[0])
     const [quantityCount, setQuantityCount] = useState(null)
@@ -39,13 +39,13 @@ export const Product = () => {
     }, [products]) */
 
     return (
-        <div className="container max-w-[1500px] mx-auto pt-12 px-5 text-start">
+        <div id={id} className="container max-w-[1500px] mx-auto pt-12 px-5 text-start">
             <div
                 className="flex flex-col bg-[#f5f5f5] text-primary-black py-8 px-10 max-sm:px-5 rounded-lg shadow-[4px_5px_6px_0_rgba(0,0,0,.4)]
             gap-y-8"
             >
                 {/*  PRODUCT HEADER  */}
-                <div className="">
+                <div className="text-center">
                     <h2 className="uppercase font-poppins font-semibold text-upperHeader">
                         Choose your NanoPods
                     </h2>

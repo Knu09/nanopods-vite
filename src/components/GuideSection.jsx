@@ -1,6 +1,6 @@
-export function GuideSection() {
+export function GuideSection({id}) {
     return (
-        <div className="container max-w-[1000px] mx-auto pt-12 px-5">
+        <div id={id} className="container max-w-[1000px] mx-auto pt-12 px-5">
             <div className="bg-[#f5f5f5] py-8 px-10 max-sm:px-5 rounded-lg shadow-[4px_5px_6px_0_rgba(0,0,0,.4)]">
                 {/*  GUIDE SECTION HEADER  */}
                 <div className="text-primary-black">

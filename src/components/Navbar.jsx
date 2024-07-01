@@ -5,10 +5,10 @@ import { useEffect } from "react";
 
 const NavBar = () => {
     const links = [
-        { name: 'FEATURES', link: '/' },
-        { name: 'HOW TO USE', link: '/' },
-        { name: 'PRODUCT', link: '/' },
-        { name: 'CONTACT', link: '/' },
+        { name: 'FEATURES', link: '#features' },
+        { name: 'HOW TO USE', link: '#how_to_use' },
+        { name: 'PRODUCT', link: '#product' },
+        { name: 'CONTACT', link: '#contact' },
     ]
 
     const [open, setOpen] = useState(false);
@@ -30,7 +30,7 @@ const NavBar = () => {
                         style={{ right: open ? '0' : '-100%' }}>
                         {
                             links.map((link) => (
-                                <li key={link.name}><a href={link.link}>{link.name}</a></li>
+                                <li key={link.name} onClick={() => setOpen(!open)}><a href={link.link}>{link.name}</a></li>
                             ))
                         }
                         <div className="md:flex">

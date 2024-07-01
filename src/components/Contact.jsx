@@ -1,8 +1,8 @@
 import Input from "./Input"
 import Button from "./Button"
-const Contact = () => {
+const Contact = ({id}) => {
     return (
-        <div className="flex flex-col items-center text-center container max-w-[500px] mx-auto py-20 px-5 text-primary-black">
+        <div id={id} className="flex flex-col items-center text-center container max-w-[500px] mx-auto py-20 px-5 text-primary-black">
             <h1 className="font-poppins font-bold max-sm:text-3xl text-5xl">
                 Stay in touch
             </h1>
